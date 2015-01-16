@@ -90,5 +90,4 @@ def digit_to_tenth(digit):
       '8': 'eighteen',
       '9': 'nineteen',
   }[str(digit)]
-
 main()
