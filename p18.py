@@ -31,3 +31,20 @@
 # trying every route. However, Problem 67, is the same challenge with a triangle
 # containing one-hundred rows; it cannot be solved by brute force, and requires
 # a clever method! ;o)
+
+
+triangle = []
+for l in file("p18_data.txt", "rw"):
+  triangle.append(map(int, l.split(" "))) # make 2D array
+print triangle
+
+
+def trace(triangle, row, column):
+  if row == len(triangle) -1: # reached to floor row
+    return triangle[row][column]
+  else:
+    return triangle[row][column] + max(
+                                       trace(triangle, row + 1, column),
+                                       trace(triangle, row + 1, column + 1))
+print trace(triangle, 0, 0)
+
